@@ -9,6 +9,8 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <TextBox x:Name="textBoxSearch" HorizontalAlignment="Left" Grid.Column="0" Height="23" Margin="52,22,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="304" Background="{x:Null}" Foreground="White"/>
+
         <TabControl Grid.Row="1" Background="{x:Null}" TabStripPlacement="Left">
             <TabItem Header="Home">
                 <ScrollViewer  Grid.Row="1" VerticalScrollBarVisibility="Hidden" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
@@ -33,5 +35,11 @@
                 </Grid>
             </TabItem>
         </TabControl>
+        <StackPanel HorizontalAlignment="Right" Height="23" Margin="0,22,10,0" VerticalAlignment="Top" Orientation="Horizontal">
+            <RadioButton x:Name="radioButtonGenre" Content="Genre" VerticalAlignment="Center" Foreground="White" Checked="radioButtonGenre_Checked"/>
+            <RadioButton x:Name="radioButtonYear" Content="Year" VerticalAlignment="Center" Foreground="White" Checked="radioButtonYear_Checked"/>
+            <RadioButton x:Name="radioButtonActor" Content="Actor" VerticalAlignment="Center" Foreground="White" Checked="radioButtonActor_Checked"/>
+            <RadioButton x:Name="radioButtonDirector" Content="Director" VerticalAlignment="Center" Foreground="White" Checked="radioButtonDirector_Checked"/>
+        </StackPanel>
     </Grid>
 </Window>

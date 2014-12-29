@@ -83,14 +83,14 @@
     <Grid>
         <Image x:Name="imagePoster" Margin="0,0,0,21" Stretch="Fill" Source="affiche.jpg"/>
         <Label x:Name="labelTitle" Content="The Avengers" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Bottom" Foreground="White" FontSize="16" Padding="0" ScrollViewer.CanContentScroll="True" FontWeight="Bold"/>
-        <DockPanel x:Name="dockPanel" VerticalAlignment="Top" Opacity="0">
-            <Label x:Name="labelRate" Content="8,5" DockPanel.Dock="Left" Foreground="White" FontWeight="Bold" FontSize="18.667" Padding="0" Margin="0" FontFamily="Tahoma" VerticalContentAlignment="Bottom">
+        <DockPanel x:Name="dockPanel" VerticalAlignment="Top" Opacity="0" Background="#99212121">
+            <Label x:Name="labelRate" Content="8,5" DockPanel.Dock="Left" Foreground="White" FontWeight="Bold" FontSize="14" Padding="0" Margin="0" FontFamily="Tahoma" VerticalContentAlignment="Bottom" Width="48">
                 <Label.Background>
                     <ImageBrush ImageSource="stars.png" Stretch="Uniform"/>
                 </Label.Background>
             </Label>
-            <Label x:Name="labelYear" DockPanel.Dock="Right" Content="2010"  Grid.Column="2" Foreground="White" FontWeight="Bold" FontSize="18.667" Padding="0" Margin="0,5,8,0" FontFamily="Tahoma"/>
-            <Label x:Name="labelGenre" Content="Comedy, Drama" Grid.Column="1" Foreground="White" FontWeight="Bold" FontSize="18.667" Padding="0" Margin="0,7,10,0" FontFamily="Tahoma" HorizontalAlignment="Center"/>
+            <Label x:Name="labelYear" DockPanel.Dock="Right" Content="2010"  Grid.Column="2" Foreground="White" FontWeight="Bold" FontSize="14" Padding="0" Margin="0,5,8,0" FontFamily="Tahoma" Width="50"/>
+            <Label x:Name="labelGenre" Content="Comedy, Drama" Grid.Column="1" Foreground="White" FontWeight="Bold" FontSize="14" Padding="0" Margin="0,7,10,0" FontFamily="Tahoma" HorizontalAlignment="Center"/>
         </DockPanel>
         <StackPanel x:Name="stackPanel" Orientation="Horizontal" Opacity="0" Margin="0,0,0,40" HorizontalAlignment="Center" VerticalAlignment="Bottom">
             <Button x:Name="buttonWatch" Width="40" Height="40" Click="buttonWatch_Click" Content="W" Foreground="White" BorderBrush="Black" BorderThickness="2,2,0,2" FontWeight="Bold" FontSize="14.667">

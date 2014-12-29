@@ -39,6 +39,7 @@ namespace WpfApplication1
                 GlobalConfig.AddGenres(film.Genres);
                 GlobalConfig.AddDirectors(film.Directors);
                 GlobalConfig.AddActors(film.ActorsList);
+                GlobalConfig.AddYear(film.Year);
             }
         }
 
@@ -67,6 +68,7 @@ namespace WpfApplication1
             GlobalConfig.AddGenres(film.Genres);
             GlobalConfig.AddDirectors(film.Directors);
             GlobalConfig.AddActors(film.ActorsList);
+            GlobalConfig.AddYear(film.Year);
         }
 
         public static void AddBanPath(String path)
@@ -95,6 +97,15 @@ namespace WpfApplication1
         public static List<Film> GetFilmByYear(int year, List<Film> films)
         {
             return films.FindAll(film => film.YearInt == year);
+        }
+
+        public static List<Film> GetFilmByYear(String year)
+        {
+            return films.FindAll(film => film.Year == year);
+        }
+        public static List<Film> GetFilmByYear(String year, List<Film> films)
+        {
+            return films.FindAll(film => film.Year == year);
         }
 
         public static List<Film> GetFilmByDirector(string director)

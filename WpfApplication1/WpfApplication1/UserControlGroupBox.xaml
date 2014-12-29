@@ -9,7 +9,7 @@
     <Grid Margin="5,0">
         <Button x:Name="labelTitle" Content="Action &gt;" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Click="labelTitle_Click"/>
         <Rectangle Height="1" Margin="10,26,10,0" Stroke="#FFACACAC" VerticalAlignment="Top"/>
-        <StackPanel x:Name="content" Orientation="Horizontal" Margin="8,35,5,8">
+        <StackPanel x:Name="content" Orientation="Horizontal" Margin="6,37,5,8">
             <me:UserControlFilm x:Name="userControlFirstFilm" HorizontalAlignment="Left" Width="Auto" VerticalAlignment="Top" />
             <WrapPanel x:Name="panel" Orientation="Vertical"/>
         </StackPanel>

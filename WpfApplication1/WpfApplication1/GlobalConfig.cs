@@ -11,6 +11,8 @@ namespace WpfApplication1
         public static List<String> Genres;
         public static List<String> Actors;
         public static List<String> Directors;
+        public static List<String> Years;
+
         public static List<String> Directories;
         public static String VlcPath;
         public static List<String> Groups;
@@ -20,6 +22,7 @@ namespace WpfApplication1
             Genres = new List<String>();
             Actors = new List<String>();
             Directors = new List<String>();
+            Years = new List<String>();
         }
 
         public static void AddGenres(List<String> genres)
@@ -41,6 +44,12 @@ namespace WpfApplication1
             foreach (String director in directors)
                 if (!Directors.Contains(director))
                     Directors.Add(director);
+        }
+
+        public static void AddYear(String year)
+        {
+            if (!Years.Contains(year))
+                Years.Add(year);
         }
     }
 }

@@ -21,10 +21,20 @@ namespace WpfApplication1
     /// </summary>
     public partial class MainWindow : Window
     {
+        public enum SortBy
+        {
+            Genre,
+            Year,
+            Director,
+            Actor
+        }
+
         OMDbAPI api;
         Parser parser;
 
-        Dictionary<String, List<Film>> filmsByGenre;
+        //Dictionary<String, List<Film>> filmsByGenre, filmsByYear, filmsByDirector, filmsByActor;
+        Dictionary<SortBy, Dictionary<String, List<Film>>> filmsBy;
+        SortBy sortBy;
         public MainWindow()
         {
             GlobalConfig.Init();
@@ -35,7 +45,7 @@ namespace WpfApplication1
             this.ResizeMode = System.Windows.ResizeMode.NoResize;
             this.WindowState = System.Windows.WindowState.Maximized;
 
-            filmsByGenre = new Dictionary<string, List<Film>>();
+            radioButtonGenre.IsChecked = true;
 
             api = new OMDbAPI();
             parser = new Parser();
@@ -52,18 +62,9 @@ namespace WpfApplication1
 
             LoadFilms(filmsInfo);
             //RefreshFilmsFromApi();
+            filmsBy = InitFilmsBy();// IMPORTANT
 
-            foreach (String genre in GlobalConfig.Genres)
-            {
-                UserControlGroupBox userControlGroupBox = new UserControlGroupBox();
-                List<Film> filmsGenre = Films.GetFilmByGenre(genre);
-                userControlGroupBox.Init(genre, filmsGenre, userControlGroup, userControlFilmPreview);
-                //userControlGroupBox.labelTitle.Click += labelTitleGroupBox_Click;
-
-                filmsByGenre.Add(genre, filmsGenre);
-
-                panelGenre.Children.Add(userControlGroupBox);
-            }
+            FillLibraryPanel(sortBy);
 
             List<UserControlGroupLine> groupLines = new List<UserControlGroupLine>();
 
@@ -85,6 +86,50 @@ namespace WpfApplication1
             foreach (UserControlGroupLine groupLine in groupLines)
                 if (groupLine.IsEmpty())
                     panelHome.Children.Remove(groupLine);
+        }
+
+        private Dictionary<SortBy, Dictionary<String, List<Film>>> InitFilmsBy()
+        {
+            Dictionary<SortBy, Dictionary<String, List<Film>>> filmsByAux = new Dictionary<SortBy,Dictionary<string,List<Film>>>();
+
+            Dictionary<String, List<Film>> filmsByGenre = new Dictionary<string,List<Film>>();
+            Dictionary<String, List<Film>> filmsByYear = new Dictionary<string,List<Film>>();
+            Dictionary<String, List<Film>> filmsByDirector = new Dictionary<string,List<Film>>();
+            Dictionary<String, List<Film>> filmsByActor = new Dictionary<string,List<Film>>();
+
+            foreach (String genre in GlobalConfig.Genres)
+                filmsByGenre.Add(genre, Films.GetFilmByGenre(genre));
+
+            foreach (String year in GlobalConfig.Years)
+                filmsByYear.Add(year, Films.GetFilmByYear(year));
+
+            foreach (String director in GlobalConfig.Directors)
+                filmsByDirector.Add(director, Films.GetFilmByYear(director));
+
+            foreach (String actor in GlobalConfig.Actors)
+                filmsByActor.Add(actor, Films.GetFilmByYear(actor));
+
+            filmsByAux.Add(SortBy.Genre, filmsByGenre);
+            filmsByAux.Add(SortBy.Year, filmsByYear);
+            filmsByAux.Add(SortBy.Director, filmsByDirector);
+            filmsByAux.Add(SortBy.Actor, filmsByActor);
+
+            return filmsByAux;
+        }
+
+        private void FillLibraryPanel(SortBy sortBy)
+        {
+            if (filmsBy == null) return;
+
+            panelGenre.Children.Clear();
+
+            foreach (KeyValuePair<String, List<Film>> entry in filmsBy[sortBy])
+            {
+                UserControlGroupBox userControlGroupBox = new UserControlGroupBox();
+                userControlGroupBox.Init(entry.Key, entry.Value, userControlGroup, userControlFilmPreview);
+
+                panelGenre.Children.Add(userControlGroupBox);
+            }
         }
 
         private void LoadFilms(List<FileInfo> filmsInfo)
@@ -185,6 +230,31 @@ namespace WpfApplication1
         private void Window_Closed(object sender, EventArgs e)
         {
             Films.SerializeFilms();
+        }
+
+        // TODO : A regrouper
+        private void radioButtonYear_Checked(object sender, RoutedEventArgs e)
+        {
+            sortBy = SortBy.Year;
+            FillLibraryPanel(sortBy);
+        }
+
+        private void radioButtonGenre_Checked(object sender, RoutedEventArgs e)
+        {
+            sortBy = SortBy.Genre;
+            FillLibraryPanel(sortBy);
+        }
+
+        private void radioButtonActor_Checked(object sender, RoutedEventArgs e)
+        {
+            sortBy = SortBy.Actor;
+            FillLibraryPanel(sortBy);
+        }
+
+        private void radioButtonDirector_Checked(object sender, RoutedEventArgs e)
+        {
+            sortBy = SortBy.Director;
+            FillLibraryPanel(sortBy);
         }
     }
 }
