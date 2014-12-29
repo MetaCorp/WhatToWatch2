@@ -1,0 +1,98 @@
+﻿<UserControl x:Name="userControl" x:Class="WpfApplication1.UserControlFilm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" Height="Auto" Margin="10" BorderBrush="#FF494949" BorderThickness="1" MouseDoubleClick="userControl_MouseDoubleClick" Width="200">
+	<UserControl.Resources>
+		<Storyboard x:Key="OnLoaded">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="userControl">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="OnMouseEnter">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="userControl">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="{Binding WidthHover}">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<CircleEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="userControl">
+            	<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="{Binding HeightHover}">
+            		<EasingDoubleKeyFrame.EasingFunction>
+            			<CircleEase EasingMode="EaseOut"/>
+            		</EasingDoubleKeyFrame.EasingFunction>
+            	</EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="userControl">
+            	<EasingThicknessKeyFrame KeyTime="0:0:0.3" Value="{Binding NegativStaticMargin}">
+            		<EasingThicknessKeyFrame.EasingFunction>
+            			<CircleEase EasingMode="EaseOut"/>
+            		</EasingThicknessKeyFrame.EasingFunction>
+            	</EasingThicknessKeyFrame>
+			</ThicknessAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="stackPanel">
+            	<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+            	<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="OnMouseLeave">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="userControl">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="{Binding Path=MyWidth}"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="userControl">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="{Binding Path=MyHeight}"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="userControl">
+                <EasingThicknessKeyFrame KeyTime="0:0:0.5" Value="{Binding Path=StaticMargin}"/>
+			</ThicknessAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="stackPanel">
+            	<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+	</UserControl.Resources>
+	<UserControl.Triggers>
+		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
+			<BeginStoryboard x:Name="OnLoaded_BeginStoryboard" Storyboard="{StaticResource OnLoaded}"/>
+		</EventTrigger>
+		<EventTrigger RoutedEvent="UIElement.MouseEnter">
+			<BeginStoryboard x:Name="OnMouseEnter_BeginStoryboard" Storyboard="{StaticResource OnMouseEnter}"/>
+		</EventTrigger>
+		<EventTrigger RoutedEvent="UIElement.MouseLeave">
+			<BeginStoryboard x:Name="OnMouseLeave_BeginStoryboard" Storyboard="{StaticResource OnMouseLeave}"/>
+		</EventTrigger>
+	</UserControl.Triggers>
+    <Grid>
+        <Image x:Name="imagePoster" Margin="0,0,0,21" Stretch="Fill" Source="affiche.jpg"/>
+        <Label x:Name="labelTitle" Content="The Avengers" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Bottom" Foreground="White" FontSize="16" Padding="0" ScrollViewer.CanContentScroll="True" FontWeight="Bold"/>
+        <StackPanel x:Name="stackPanel" Orientation="Horizontal" Opacity="0" Margin="0,0,0,40" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <Button x:Name="buttonWatch" Width="40" Height="40" Click="buttonWatch_Click" Content="W" Foreground="White" BorderBrush="Black" BorderThickness="2,2,0,2" FontWeight="Bold" FontSize="14.667">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#99323131" Offset="0"/>
+                        <GradientStop Color="#99151515" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="buttonTrailer" Width="40" Height="40" Content="T" Foreground="White" BorderBrush="Black" BorderThickness="0,2" FontWeight="Bold" FontSize="14.667" Click="buttonTrailer_Click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#99323131" Offset="0"/>
+                        <GradientStop Color="#99151515" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="buttonInfo" Width="40" Height="40" Content="I" Foreground="White" Click="buttonInfo_Click" BorderBrush="Black" BorderThickness="0,2,2,2" FontWeight="Bold" FontSize="14.667">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#99323131" Offset="0"/>
+                        <GradientStop Color="#99151515" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>
