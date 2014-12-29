@@ -97,6 +97,8 @@ namespace WpfApplication1
             Dictionary<String, List<Film>> filmsByDirector = new Dictionary<string,List<Film>>();
             Dictionary<String, List<Film>> filmsByActor = new Dictionary<string,List<Film>>();
 
+            // TO DO : classify by nb of film
+
             foreach (String genre in GlobalConfig.Genres)
                 filmsByGenre.Add(genre, Films.GetFilmByGenre(genre));
 
@@ -104,10 +106,10 @@ namespace WpfApplication1
                 filmsByYear.Add(year, Films.GetFilmByYear(year));
 
             foreach (String director in GlobalConfig.Directors)
-                filmsByDirector.Add(director, Films.GetFilmByYear(director));
+                filmsByDirector.Add(director, Films.GetFilmByDirector(director));
 
             foreach (String actor in GlobalConfig.Actors)
-                filmsByActor.Add(actor, Films.GetFilmByYear(actor));
+                filmsByActor.Add(actor, Films.GetFilmByActor(actor));
 
             filmsByAux.Add(SortBy.Genre, filmsByGenre);
             filmsByAux.Add(SortBy.Year, filmsByYear);
