@@ -50,3 +50,4 @@ C:\Users\leopo_000\Downloads\WpfApplication1\WpfApplication1\bin\Debug\Newtonsof
 C:\Users\leopo_000\Downloads\WpfApplication1\WpfApplication1\bin\Debug\Newtonsoft.Json.xml
 C:\Users\leopo_000\Downloads\WpfApplication1\WpfApplication1\obj\Debug\UserControlGroup.baml
 C:\Users\leopo_000\Downloads\WpfApplication1\WpfApplication1\obj\Debug\UserControlGroup.g.cs
+C:\Users\leopo_000\Downloads\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1.csprojResolveAssemblyReference.cache

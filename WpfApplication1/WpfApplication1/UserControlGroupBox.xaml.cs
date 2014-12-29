@@ -51,6 +51,7 @@ namespace WpfApplication1
             userControlFirstFilm.Init(this.films[0], preview);
             userControlFirstFilm.Height = MyHeight;
             this.Height = userControlFirstFilm.Height + content.Margin.Top + content.Margin.Bottom + userControlFirstFilm.Margin.Top + userControlFirstFilm.Margin.Bottom + 2;
+            userControlFirstFilm.MouseDoubleClick += userControlFilm_MouseDoubleClick;
             
             for (int i = 1; i < films.Count && i < 7; i++)
             {
@@ -66,7 +67,7 @@ namespace WpfApplication1
 
         void userControlFilm_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            onHide.Begin(this);
+            //onHide.Begin(this);
         }
 
         private void labelTitle_Click(object sender, RoutedEventArgs e)

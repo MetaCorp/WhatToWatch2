@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
-             Margin="10" Background="#FF0C0C0C">
+             Margin="10" Background="#FF151515">
     <Grid>
         <StackPanel x:Name="panelTitle" Orientation="Horizontal">
             <Button x:Name="buttonLibrary" Content="Library &gt;" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Click="buttonLibrary_Click"/>

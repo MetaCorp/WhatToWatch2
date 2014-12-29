@@ -57,12 +57,6 @@ namespace WpfApplication1
             }
         }
 
-        private void userControl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            preview.Init(film);
-            preview.Visibility = System.Windows.Visibility.Visible;
-        }
-
         private void buttonInfo_Click(object sender, RoutedEventArgs e)
         {
 
@@ -76,6 +70,12 @@ namespace WpfApplication1
         private void buttonWatch_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void userControl_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            preview.Init(film);
+            preview.Visibility = System.Windows.Visibility.Visible;
         }
     }
 }
