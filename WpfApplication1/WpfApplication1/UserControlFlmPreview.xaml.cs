@@ -22,13 +22,14 @@ namespace WpfApplication1
     public partial class UserControlFlmPreview : UserControl
     {
         Film film;
-        Storyboard onLoaded;
+        Storyboard onLoaded, onHide;
         
         public UserControlFlmPreview()
         {
             InitializeComponent();
 
             onLoaded = (Storyboard)this.Resources["OnLoaded"];
+            onHide = (Storyboard)this.Resources["OnHide"];
         }
 
         public void Init(Film film)
@@ -38,6 +39,7 @@ namespace WpfApplication1
             this.labelTitle.Content = film.Title;
             this.labelYear.Content = film.Year;
             this.textBlockSyn.Text = film.Plot;
+            this.labelDirector.Content = film.Director;
 
             if (film.Poster != "N/A")
             {
@@ -53,7 +55,7 @@ namespace WpfApplication1
 
         private void buttonLibrary_Click(object sender, RoutedEventArgs e)
         {
-            this.Visibility = System.Windows.Visibility.Hidden;
+            onHide.Begin(this);
         }
     }
 }

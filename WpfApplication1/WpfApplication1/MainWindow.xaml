@@ -30,7 +30,7 @@
                     <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
                         <WrapPanel x:Name="panelGenre"/>
                     </ScrollViewer>
-                    <me:UserControlGroup x:Name="userControlGroup" Margin="0" Background="Black" Padding="10,10,0,0" Visibility="Hidden"/>
+                    <me:UserControlGroup x:Name="userControlGroup" Visibility="Hidden"/>
                     <me:UserControlFlmPreview x:Name="userControlFilmPreview" Margin="-1,0,0,0" Visibility="Hidden" Width="Auto" Height="Auto"/>
                 </Grid>
             </TabItem>

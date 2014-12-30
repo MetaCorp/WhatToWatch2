@@ -51,5 +51,10 @@ namespace WpfApplication1
             if (!Years.Contains(year))
                 Years.Add(year);
         }
+
+        public static void SortData()
+        {
+            Years = Years.OrderByDescending(y => y).ToList();
+        }
     }
 }

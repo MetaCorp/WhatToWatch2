@@ -38,8 +38,8 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="dockPanel">
-            	<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
-            	<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="OnMouseLeave">
@@ -56,7 +56,7 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="dockPanel">
-            	<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="OnImageLoaded">
@@ -81,19 +81,19 @@
         </EventTrigger>
     </UserControl.Triggers>
     <Grid>
-        <Image x:Name="imagePoster" Margin="0,0,0,21" Stretch="Fill" Source="affiche.jpg"/>
+        <Image x:Name="imagePoster" Margin="0,0,0,20" Stretch="Fill" Source="affiche.jpg"/>
         <Label x:Name="labelTitle" Content="The Avengers" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Bottom" Foreground="White" FontSize="16" Padding="0" ScrollViewer.CanContentScroll="True" FontWeight="Bold"/>
-        <DockPanel x:Name="dockPanel" VerticalAlignment="Top" Opacity="0" Background="#66212121">
-            <Label x:Name="labelRate" Content="8,5" DockPanel.Dock="Left" Foreground="White" FontWeight="Bold" FontSize="14" Padding="35,0,0,0" FontFamily="Tahoma" VerticalContentAlignment="Bottom" Width="80" Margin="-5,0,0,0">
+        <Grid x:Name="dockPanel" VerticalAlignment="Top" Background="#66212121" Opacity="0" Height="21">
+            <Label x:Name="labelRate" Content="8,5" Foreground="White" FontWeight="Bold" FontSize="14" Padding="0" FontFamily="Tahoma" Width="66" HorizontalAlignment="Left" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Right" Margin="-18,0,0,3">
                 <Label.Background>
                     <ImageBrush ImageSource="stars.png" Stretch="Uniform"/>
                 </Label.Background>
             </Label>
-            <Label x:Name="labelYear" DockPanel.Dock="Right" Content="2010"  Grid.Column="2" Foreground="White" FontWeight="Bold" FontSize="14" Padding="0" Margin="0,5,8,0" FontFamily="Tahoma" Width="80"/>
-            <Label x:Name="labelGenre" Content="Comedy, Drama" Grid.Column="1" Foreground="White" FontWeight="Bold" FontSize="14" Padding="0" Margin="0,7,10,0" FontFamily="Tahoma" HorizontalAlignment="Center"/>
-        </DockPanel>
-        <StackPanel x:Name="stackPanel" Orientation="Horizontal" Opacity="0" Margin="0,0,0,40" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-            <Button x:Name="buttonWatch" Width="40" Height="40" Click="buttonWatch_Click" Content="W" Foreground="White" BorderBrush="Black" BorderThickness="2,2,0,2" FontWeight="Bold" FontSize="14.667">
+            <Label x:Name="labelYear" Content="2010"  Grid.Column="2" Foreground="White" FontWeight="Bold" FontSize="14" Padding="0,0,5,0" Margin="0,0,0,3" FontFamily="Tahoma" Width="80" HorizontalAlignment="Right" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Right"/>
+            <Label x:Name="labelGenre" Content="Comedy, Drama" Grid.Column="1" Foreground="White" FontWeight="Bold" FontSize="14" Padding="0" Margin="0,0,0,3" FontFamily="Tahoma" HorizontalAlignment="Center"/>
+        </Grid>
+        <StackPanel x:Name="stackPanel" Orientation="Horizontal" Opacity="0" Margin="0,0,0,50" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <Button x:Name="buttonWatch" Width="32" Height="32" Click="buttonWatch_Click" Content="W" Foreground="White" BorderBrush="Black" BorderThickness="2,2,0,2" FontWeight="Bold" FontSize="14.667">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#99323131" Offset="0"/>
@@ -101,7 +101,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button x:Name="buttonTrailer" Width="40" Height="40" Content="T" Foreground="White" BorderBrush="Black" BorderThickness="0,2" FontWeight="Bold" FontSize="14.667" Click="buttonTrailer_Click">
+            <Button x:Name="buttonTrailer" Width="32" Height="32" Content="T" Foreground="White" BorderBrush="Black" BorderThickness="0,2" FontWeight="Bold" FontSize="14.667" Click="buttonTrailer_Click">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#99323131" Offset="0"/>
@@ -109,7 +109,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button x:Name="buttonInfo" Width="40" Height="40" Content="I" Foreground="White" Click="buttonInfo_Click" BorderBrush="Black" BorderThickness="0,2,2,2" FontWeight="Bold" FontSize="14.667">
+            <Button x:Name="buttonInfo" Width="32" Height="32" Content="I" Foreground="White" Click="buttonInfo_Click" BorderBrush="Black" BorderThickness="0,2,2,2" FontWeight="Bold" FontSize="14.667">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#99323131" Offset="0"/>

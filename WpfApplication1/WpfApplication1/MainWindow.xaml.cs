@@ -61,6 +61,7 @@ namespace WpfApplication1
             }
 
             LoadFilms(filmsInfo);
+            GlobalConfig.SortData();//Sort for display
             //RefreshFilmsFromApi();
             filmsBy = InitFilmsBy();// IMPORTANT
 
@@ -110,6 +111,9 @@ namespace WpfApplication1
 
             foreach (String actor in GlobalConfig.Actors)
                 filmsByActor.Add(actor, Films.GetFilmByActor(actor));
+
+            filmsByActor = filmsByActor.OrderByDescending(kvp => kvp.Value.Count).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+            filmsByDirector = filmsByDirector.OrderByDescending(kvp => kvp.Value.Count).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
 
             filmsByAux.Add(SortBy.Genre, filmsByGenre);
             filmsByAux.Add(SortBy.Year, filmsByYear);

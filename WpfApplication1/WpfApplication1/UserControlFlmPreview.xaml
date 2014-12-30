@@ -22,8 +22,25 @@
 					</EasingDoubleKeyFrame.EasingFunction>
 				</EasingDoubleKeyFrame>
 			</DoubleAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="userControl">
+				<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
+			</ObjectAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="OnHide">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="userControl">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="userControl">
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Hidden}"/>
+			</ObjectAnimationUsingKeyFrames>
 		</Storyboard>
 	</UserControl.Resources>
+	<UserControl.Triggers>
+		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
+			<BeginStoryboard Storyboard="{StaticResource OnHide}"/>
+		</EventTrigger>
+	</UserControl.Triggers>
     <Grid>
         <StackPanel x:Name="panelTitle" Orientation="Horizontal" VerticalAlignment="Top">
             <Button x:Name="buttonLibrary" Content="Library &gt;" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Click="buttonLibrary_Click"/>

@@ -55,6 +55,11 @@ namespace WpfApplication1
                 img.EndInit();
                 this.imagePoster.Source = img;
             }
+
+            this.labelRate.Content = film.imdbRating;
+            this.labelGenre.Content = film.Genre;
+            this.labelYear.Content = film.Year;
+
         }
 
         private void buttonInfo_Click(object sender, RoutedEventArgs e)

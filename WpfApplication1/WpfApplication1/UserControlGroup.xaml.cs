@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Media.Animation;
 
 namespace WpfApplication1
 {
@@ -21,9 +22,14 @@ namespace WpfApplication1
     public partial class UserControlGroup : UserControl
     {
         List<Film> films;
+        Storyboard onLoaded, onHide;
+
         public UserControlGroup()
         {
             InitializeComponent();
+
+            onLoaded = (Storyboard)this.Resources["OnLoaded"];
+            onHide = (Storyboard)this.Resources["OnHide"];
         }
 
         public void Init(String title, List<Film> films, UserControlFlmPreview preview)
@@ -41,11 +47,13 @@ namespace WpfApplication1
 
                 panel.Children.Add(userControlFilm);
             }
+
+            onLoaded.Begin(this);
         }
 
         private void buttonLibrary_Click(object sender, RoutedEventArgs e)
         {
-            this.Visibility = System.Windows.Visibility.Hidden;
+            onHide.Begin(this);
         }
     }
 }
