@@ -44,7 +44,7 @@
     <Grid>
         <StackPanel x:Name="panelTitle" Orientation="Horizontal" VerticalAlignment="Top">
             <Button x:Name="buttonLibrary" Content="Library &gt;" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Click="buttonLibrary_Click"/>
-            <Button x:Name="buttonTitle" Content="Action &gt;" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0"/>
+            <Button x:Name="buttonTitle" Content="Action &gt;" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Click="buttonTitle_Click"/>
         </StackPanel>
         <Rectangle Height="1" Margin="10,26,10,0" Stroke="#FFACACAC" VerticalAlignment="Top"/>
         <Grid>

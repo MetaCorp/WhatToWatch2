@@ -35,7 +35,7 @@ namespace WpfApplication1
             {
                 UserControlFilm userControlFilm = new UserControlFilm();
                 userControlFilm.Height = 350;
-                userControlFilm.Init(films[i], preview);
+                userControlFilm.Init(films[i], title, preview);
 
                 panel.Children.Add(userControlFilm);
             }

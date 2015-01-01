@@ -48,7 +48,7 @@ namespace WpfApplication1
             if (films.Count == 0)
                 return;
 
-            userControlFirstFilm.Init(this.films[0], preview);
+            userControlFirstFilm.Init(this.films[0], title, preview);
             userControlFirstFilm.Height = MyHeight;
             this.Height = userControlFirstFilm.Height + content.Margin.Top + content.Margin.Bottom + userControlFirstFilm.Margin.Top + userControlFirstFilm.Margin.Bottom + 2;
             userControlFirstFilm.MouseDoubleClick += userControlFilm_MouseDoubleClick;
@@ -57,7 +57,7 @@ namespace WpfApplication1
             {
                 UserControlFilm userControlFilm = new UserControlFilm();
                 userControlFilm.Height = -(userControlFilm.Margin.Top + userControlFilm.Margin.Bottom) / 2 + userControlFirstFilm.Height / 2;
-                userControlFilm.Init(this.films[i], preview);
+                userControlFilm.Init(this.films[i], title, preview);
 
                 userControlFilm.MouseDoubleClick += userControlFilm_MouseDoubleClick;
 
@@ -73,7 +73,6 @@ namespace WpfApplication1
         private void labelTitle_Click(object sender, RoutedEventArgs e)
         {
             group.Init(title, films, preview);
-            group.Visibility = System.Windows.Visibility.Visible;
         }
     }
 }

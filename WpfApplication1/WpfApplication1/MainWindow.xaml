@@ -6,14 +6,16 @@
         Closed="Window_Closed">
     <Grid Background="Black">
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="105"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBox x:Name="textBoxSearch" HorizontalAlignment="Left" Grid.Column="0" Height="23" Margin="52,22,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="304" Background="{x:Null}" Foreground="White"/>
+        <Rectangle Grid.Row="0" Fill="#FF0A0A0A"/>
+        <TextBlock Text="What To Watch" TextAlignment="Center" Foreground="White" Width="92" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Margin="10,21,0,0" FontWeight="Bold" Height="63" FontSize="22"/>
+        <TextBox x:Name="textBoxSearch" HorizontalAlignment="Left" Grid.Column="0" Height="24" Margin="159,71,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="304" Background="{x:Null}" Foreground="White"/>
 
-        <TabControl Grid.Row="1" Background="{x:Null}" TabStripPlacement="Left">
-            <TabItem Header="Home">
-                <ScrollViewer  Grid.Row="1" VerticalScrollBarVisibility="Hidden" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+        <TabControl Grid.Row="1" Background="{x:Null}" TabStripPlacement="Left" BorderBrush="#FFACACAC" BorderThickness="0">
+            <TabItem Header="Home" Width="110" Height="40" Margin="0">
+                <ScrollViewer  Grid.Row="1" VerticalScrollBarVisibility="Hidden" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" BorderThickness="1,0,0,0">
                     <Grid>
                         <WrapPanel x:Name="panelHome">
                             <me:UserControlGroupLine x:Name="userControlGroupLineToFinish"/>
@@ -25,9 +27,9 @@
                     </Grid>
                 </ScrollViewer>
             </TabItem>
-            <TabItem x:Name="tabLibrary" Header="Library">
+            <TabItem x:Name="tabLibrary" Header="Library" Width="110" Height="40" Padding="15,2,6,2" Margin="0">
                 <Grid>
-                    <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+                    <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" BorderThickness="1,0,0,0">
                         <WrapPanel x:Name="panelGenre"/>
                     </ScrollViewer>
                     <me:UserControlGroup x:Name="userControlGroup" Visibility="Hidden"/>
@@ -35,7 +37,7 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        <StackPanel HorizontalAlignment="Right" Height="23" Margin="0,22,10,0" VerticalAlignment="Top" Orientation="Horizontal">
+        <StackPanel HorizontalAlignment="Right" Height="23" Margin="0,22,10,0" VerticalAlignment="Top" Orientation="Horizontal" Width="203">
             <RadioButton x:Name="radioButtonGenre" Content="Genre" VerticalAlignment="Center" Foreground="White" Checked="radioButtonGenre_Checked"/>
             <RadioButton x:Name="radioButtonYear" Content="Year" VerticalAlignment="Center" Foreground="White" Checked="radioButtonYear_Checked"/>
             <RadioButton x:Name="radioButtonActor" Content="Actor" VerticalAlignment="Center" Foreground="White" Checked="radioButtonActor_Checked"/>

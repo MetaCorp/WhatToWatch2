@@ -95,22 +95,20 @@ namespace WpfApplication1
 
             Dictionary<String, List<Film>> filmsByGenre = new Dictionary<string,List<Film>>();
             Dictionary<String, List<Film>> filmsByYear = new Dictionary<string,List<Film>>();
-            Dictionary<String, List<Film>> filmsByDirector = new Dictionary<string,List<Film>>();
-            Dictionary<String, List<Film>> filmsByActor = new Dictionary<string,List<Film>>();
-
+            Dictionary<String, List<Film>> filmsByDirector = new Dictionary<string, List<Film>>();
+            Dictionary<String, List<Film>> filmsByActor = new Dictionary<string, List<Film>>();
+            
             // TO DO : classify by nb of film
 
             foreach (String genre in GlobalConfig.Genres)
                 filmsByGenre.Add(genre, Films.GetFilmByGenre(genre));
-
             foreach (String year in GlobalConfig.Years)
                 filmsByYear.Add(year, Films.GetFilmByYear(year));
-
             foreach (String director in GlobalConfig.Directors)
                 filmsByDirector.Add(director, Films.GetFilmByDirector(director));
-
             foreach (String actor in GlobalConfig.Actors)
                 filmsByActor.Add(actor, Films.GetFilmByActor(actor));
+
 
             filmsByActor = filmsByActor.OrderByDescending(kvp => kvp.Value.Count).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
             filmsByDirector = filmsByDirector.OrderByDescending(kvp => kvp.Value.Count).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);

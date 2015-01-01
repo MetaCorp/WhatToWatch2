@@ -32,10 +32,10 @@ namespace WpfApplication1
             onHide = (Storyboard)this.Resources["OnHide"];
         }
 
-        public void Init(Film film)
+        public void Init(String title, Film film)
         {
             this.film = film;
-
+            this.buttonTitle.Content = title;
             this.labelTitle.Content = film.Title;
             this.labelYear.Content = film.Year;
             this.textBlockSyn.Text = film.Plot;
@@ -54,6 +54,11 @@ namespace WpfApplication1
         }
 
         private void buttonLibrary_Click(object sender, RoutedEventArgs e)
+        {
+            onHide.Begin(this);
+        }
+
+        private void buttonTitle_Click(object sender, RoutedEventArgs e)
         {
             onHide.Begin(this);
         }

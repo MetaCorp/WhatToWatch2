@@ -23,12 +23,14 @@ namespace WpfApplication1
         public static Double offset = 10;
         public static Thickness StaticMargin { get { return new Thickness(offset); } set { StaticMargin = value; } }
         public static Thickness NegativStaticMargin { get { return new Thickness(-offset); } set { NegativStaticMargin = value; } }
+        public Thickness TotalMargin { get { return new Thickness(offset + MyWidth / 2, offset + MyHeight / 2, offset + MyWidth / 2, offset + MyHeight / 2); } set { TotalMargin = value; } }
         public Double WidthHover { get { return this.Width + 2 * (this.Margin.Left + this.Margin.Right); } }
         public Double MyWidth { get { return this.Width; }}
 
         public Double HeightHover { get { return this.Height + 2 * (this.Margin.Top + this.Margin.Bottom); } }
         public Double MyHeight { get { return this.Height; } }
 
+        String parent;
 
         Film film;
         UserControlFlmPreview preview;
@@ -39,11 +41,12 @@ namespace WpfApplication1
             DataContext = this;
         }
 
-        public void Init(Film film, UserControlFlmPreview preview)
+        public void Init(Film film, String parent, UserControlFlmPreview preview)
         {
             this.film = film;
             this.Width = this.Height * 2 / 3;
             this.preview = preview;
+            this.parent = parent;
 
             this.labelTitle.Content = film.Title;
 
@@ -79,7 +82,7 @@ namespace WpfApplication1
 
         private void userControl_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            preview.Init(film);
+            preview.Init(parent, film);
             preview.Visibility = System.Windows.Visibility.Visible;
         }
     }

@@ -6,10 +6,18 @@
              mc:Ignorable="d" Height="462" Margin="10" BorderBrush="#FF494949" BorderThickness="1" Width="395" MouseUp="userControl_MouseUp">
     <UserControl.Resources>
         <Storyboard x:Key="OnLoaded">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="userControl">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="userControl">
                 <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="{Binding MyWidth}"/>
             </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="userControl">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="{Binding MyHeight}"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="userControl">
+                <EasingThicknessKeyFrame KeyTime="0" Value="{Binding TotalMargin}"/>
+                <EasingThicknessKeyFrame KeyTime="0:0:0.5" Value="{Binding StaticMargin}"/>
+            </ThicknessAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="OnMouseEnter">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="userControl">
